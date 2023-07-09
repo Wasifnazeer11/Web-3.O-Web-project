@@ -1,21 +1,24 @@
 import { AiFillAlipayCircle } from 'react-icons/ai'
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
-// import {looder} from './'
 import React from 'react'
-const commenStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white" 
-const Input = ({placeholder, name, type, value, changeHandle}) =>(
+import Looder from './Looder';
+const commenStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px]  w-full flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white" 
+const Input = ({placeholder, name, type, value, handleChange,className}) =>(
    <input type="text"  
    placeholder={placeholder}
-   type={type}
+   Type={type}
    step="0.0001"
    value={value}
    onChange={(e)=> handleChange(e,name)}
-   className=' my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white npder-none text-sm white-glassmorphism '
+  className={className}
    />
    )
 const Welcome = () => {
   const connectWallet = () =>{
+
+  }
+  const handleSubmit = () =>{
 
   }
   return (
@@ -27,10 +30,11 @@ const Welcome = () => {
     <h1 className='text-3xl sm:text-5xl text-white  py-1 '>
       Send Crypto <br /> across the world
     </h1>
-    <p className=' text-left mt-5 text-base text-white font-light md:w-9/12 w-11/12 '>Expole the Crpto World to buy and sale the crypto through us.!</p>
-   
-    <button className=' flex flex-row justify-center items-center my-5 p-2 bg-[#2952e3] rounded-full cursor-pointer hover:bg-[#2546bd] '
-      type='button' onClick={connectWallet}
+    <p className='text-left mt-5 text-base text-white font-light md:w-9'> </p>   
+    <button
+     type='button' 
+     onClick={connectWallet}
+      className=  "flex flex-row justify-center items-center my-5 p-2 bg-[#2952e3] rounded-full cursor-pointer hover:bg-[#2546bd]" 
     > 
      <p className='text-white text-base font-semibold '>Connect Wallet</p>
     </button>
@@ -80,7 +84,25 @@ const Welcome = () => {
 
       </div>
       <div className=' p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism  '>
-        <input  placeholder='Address To ' name='address to' type='text' handleChange={()=>{}} />
+        <input  placeholder='Address To ' name='address to' type='text' handleChange={()=>{}}
+         className="my-2 w-full rounded-md p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                 <input  placeholder='Amount (ETH)' name='Amount' type='Number' handleChange={()=>{}}
+         className="my-2 w-full rounded-md p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                 <input  placeholder='Keyword (Gift) ' name='Keyword' type='text' handleChange={()=>{}}
+         className="my-2 w-full rounded-md p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+                 <input  placeholder='Message' name='Message' type='text' handleChange={()=>{}}
+         className="my-2 w-full rounded-md p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism" />
+          <div className=' h-[1px] w-full bg-gray-400 my-2 ' />
+        {false? (
+          <Looder/>
+        ) : ( 
+          <button
+          type='button'
+          onClick={handleSubmit}
+          className='text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] cursor-pointer rounded-2xl hover:bg-white hover:text-black'>
+            Send Now
+          </button>
+   ) }
       </div>
     </div>
     </div>
